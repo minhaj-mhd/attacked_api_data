@@ -50,13 +50,24 @@ Make sure MongoDB is running locally or update your connect() call in mongoengin
 
     python manage.py runserver
     ```
-6.  **Access API Docs**
+
+6. **Generate sample data**
+    Generate any number of sample data using generate_data.py script. 
+    Mention the number of data to be created.
+    It will generate fake attack data in the period of last 2 months.
+
+    ```bash
+    python manage.py generate_data.py -n 5
+    ```
+7.  **Access API Docs**
 
 Swagger UI: http://localhost:8000/api/docs/swagger/
 
 ReDoc: http://localhost:8000/api/docs/redoc/
 
 OpenAPI schema: http://localhost:8000/api/schema/
+
+
 
 ***🧪 Running Tests**
 ```bash
