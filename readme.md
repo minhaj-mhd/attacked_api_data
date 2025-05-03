@@ -75,34 +75,44 @@ OpenAPI schema: http://localhost:8000/api/schema/
 python manage.py test
 ```
 
-***📘 API Endpoints Overview***
-**🔍 List Attacks**
+## 📘 API Endpoints Overview
 
+---
 
-**GET /api/attacks/**
+### 🔍 List Attacks
+
+**GET `/api/attacks/`**
 
 Query Parameters:
 
-- page, page_size: Pagination controls
+-   `page`, `page_size`: Pagination controls
+-   `attack_type`: Filter by type (e.g., "DDoS", "Phishing")
+-   `severity`: Filter by numeric severity
+-   `region`: Filter by country (source location)
+-   `start_date`, `end_date`: ISO 8601 datetime strings for filtering by range
 
-- attack_type: Filter by type (e.g., "DDoS", "Phishing")
+---
 
-- severity: Filter by numeric severity
+### 🕒 Recent Attacks
 
-- region: Filter by country (source location)
+**GET `/api/attacks/recent/?limit=5`**
 
-- start_date, end_date: ISO 8601 datetime strings for filtering by range
+Returns the most recent *n* attacks (default limit is 10).
 
-**🕒 Recent Attacks**
+---
 
-**GET /api/attacks/recent/?limit=5**
+### 📊 Attack Statistics by Country
 
-Returns the most recent n attacks (default limit is 10).
+**GET `/api/attacks/statistics/`**
 
-**📊 Attack Statistics by Country**
-**GET /api/attacks/statistics/**
-Returns a dictionary of { country: total_attacks }.
+Returns a dictionary of `{ country: total_attacks }`.
 
-**🗺️ GeoJSON Visualization Data**
-**GET /api/attacks/visualization-data/?view_type=globe**
+---
+
+### 🗺️ GeoJSON Visualization Data
+
+**GET `/api/attacks/visualization-data/?view_type=globe`**
+
 Returns a GeoJSON FeatureCollection of recent attacks for map/globe rendering.
+
+---
