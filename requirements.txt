@@ -1,0 +1,6 @@
+django
+djangorestframework
+faker
+mongoengine
+pycountry
+pymongo
